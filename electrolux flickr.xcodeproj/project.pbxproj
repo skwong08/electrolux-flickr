@@ -16,6 +16,11 @@
 		5315C8A027FA89F0002B4492 /* electrolux_flickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C89F27FA89F0002B4492 /* electrolux_flickrTests.swift */; };
 		5315C8AA27FA89F0002B4492 /* electrolux_flickrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C8A927FA89F0002B4492 /* electrolux_flickrUITests.swift */; };
 		5315C8AC27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */; };
+		535539CD27FA93FE00AE54AC /* EFBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539CC27FA93FE00AE54AC /* EFBaseViewController.swift */; };
+		535539CF27FA94B800AE54AC /* EFImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539CE27FA94B800AE54AC /* EFImageListViewController.swift */; };
+		535539D227FA954500AE54AC /* EFImageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D127FA954500AE54AC /* EFImageListViewModel.swift */; };
+		535539D427FA95B700AE54AC /* EFImageListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D327FA95B700AE54AC /* EFImageListDataSource.swift */; };
+		535539D727FA961C00AE54AC /* EFImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D627FA961C00AE54AC /* EFImageCVC.swift */; };
 		53EFA51B27FA8B170049206C /* EFApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51A27FA8B170049206C /* EFApiClient.swift */; };
 		53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51C27FA8B310049206C /* EFApiRouter.swift */; };
 		53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51E27FA8B5A0049206C /* EFColor.swift */; };
@@ -65,6 +70,11 @@
 		5315C8A527FA89F0002B4492 /* electrolux flickrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "electrolux flickrUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5315C8A927FA89F0002B4492 /* electrolux_flickrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electrolux_flickrUITests.swift; sourceTree = "<group>"; };
 		5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electrolux_flickrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		535539CC27FA93FE00AE54AC /* EFBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFBaseViewController.swift; sourceTree = "<group>"; };
+		535539CE27FA94B800AE54AC /* EFImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageListViewController.swift; sourceTree = "<group>"; };
+		535539D127FA954500AE54AC /* EFImageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageListViewModel.swift; sourceTree = "<group>"; };
+		535539D327FA95B700AE54AC /* EFImageListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageListDataSource.swift; sourceTree = "<group>"; };
+		535539D627FA961C00AE54AC /* EFImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageCVC.swift; sourceTree = "<group>"; };
 		53EFA51A27FA8B170049206C /* EFApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiClient.swift; sourceTree = "<group>"; };
 		53EFA51C27FA8B310049206C /* EFApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiRouter.swift; sourceTree = "<group>"; };
 		53EFA51E27FA8B5A0049206C /* EFColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColor.swift; sourceTree = "<group>"; };
@@ -154,6 +164,9 @@
 				5315C88827FA89EE002B4492 /* AppDelegate.swift */,
 				5315C88A27FA89EE002B4492 /* SceneDelegate.swift */,
 				5315C88C27FA89EE002B4492 /* ViewController.swift */,
+				535539D827FA963900AE54AC /* Cell */,
+				535539D527FA95E500AE54AC /* View Model */,
+				535539D027FA952200AE54AC /* Controller */,
 				53EFA53227FA8E710049206C /* Model */,
 				53EFA52427FA8B8A0049206C /* Helper */,
 				5315C88E27FA89EE002B4492 /* Main.storyboard */,
@@ -179,6 +192,32 @@
 				5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */,
 			);
 			path = "electrolux flickrUITests";
+			sourceTree = "<group>";
+		};
+		535539D027FA952200AE54AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				535539CC27FA93FE00AE54AC /* EFBaseViewController.swift */,
+				535539CE27FA94B800AE54AC /* EFImageListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		535539D527FA95E500AE54AC /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				535539D127FA954500AE54AC /* EFImageListViewModel.swift */,
+				535539D327FA95B700AE54AC /* EFImageListDataSource.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		535539D827FA963900AE54AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				535539D627FA961C00AE54AC /* EFImageCVC.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		53EFA52427FA8B8A0049206C /* Helper */ = {
@@ -481,7 +520,10 @@
 			files = (
 				53EFA52327FA8B7E0049206C /* EFUtil.swift in Sources */,
 				53EFA53827FA908E0049206C /* EFSearchResponse.swift in Sources */,
+				535539D727FA961C00AE54AC /* EFImageCVC.swift in Sources */,
 				53EFA51B27FA8B170049206C /* EFApiClient.swift in Sources */,
+				535539D427FA95B700AE54AC /* EFImageListDataSource.swift in Sources */,
+				535539CF27FA94B800AE54AC /* EFImageListViewController.swift in Sources */,
 				53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */,
 				53EFA53127FA8E0E0049206C /* EFPhoto.swift in Sources */,
 				53EFA52F27FA8E0E0049206C /* EFPhotos.swift in Sources */,
@@ -489,9 +531,11 @@
 				5315C88D27FA89EE002B4492 /* ViewController.swift in Sources */,
 				5315C88927FA89EE002B4492 /* AppDelegate.swift in Sources */,
 				53EFA52127FA8B700049206C /* EFConstant.swift in Sources */,
+				535539D227FA954500AE54AC /* EFImageListViewModel.swift in Sources */,
 				53EFA52B27FA8DF20049206C /* EFApiError.swift in Sources */,
 				53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */,
 				53EFA52627FA8BAA0049206C /* EFFuture.swift in Sources */,
+				535539CD27FA93FE00AE54AC /* EFBaseViewController.swift in Sources */,
 				5315C88B27FA89EE002B4492 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +724,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -709,6 +754,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

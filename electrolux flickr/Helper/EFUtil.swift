@@ -62,6 +62,13 @@ class EFUtil: NSObject {
         ///The value is getting for HMI overall screen size for iPhone
         return size * ScreenSize.minLength / 414.0
     }
+    
+    //MARK: - Get Label Height according to its text with font
+    class func getLabelSize (text: String, maximumLabelSize: CGSize, attributes: [NSAttributedString.Key : Any]?) -> CGSize {
+        let expectLabelSize = text.boundingRect(with: maximumLabelSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
+        
+        return expectLabelSize
+    }
 }
 
 extension URLComponents {

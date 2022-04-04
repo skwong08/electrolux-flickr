@@ -12,6 +12,10 @@ extension UIColor {
     
     ///List all the color code here that would be using in the app
     static let electrolux_black_000000 = UIColor.init(hexCode: "#000000")
+    static let electrolux_blue_337EF6 = UIColor.init(hexCode: "#337EF6")
+    static let electrolux_gray_C9C9CE = UIColor.init(hexCode: "#C9C9CE")
+    static let electrolux_gray_273439 = UIColor.init(hexCode: "#273439")
+    static let electrolux_gray_4A4B4F = UIColor.init(hexCode: "#4A4B4F")
     static let electrolux_white_FFFFFF = UIColor.init(hexCode: "#FFFFFF")
 
     convenience init(red: Int, green: Int, blue: Int, alphaValue: CGFloat = 1.0) {
