@@ -16,6 +16,17 @@
 		5315C8A027FA89F0002B4492 /* electrolux_flickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C89F27FA89F0002B4492 /* electrolux_flickrTests.swift */; };
 		5315C8AA27FA89F0002B4492 /* electrolux_flickrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C8A927FA89F0002B4492 /* electrolux_flickrUITests.swift */; };
 		5315C8AC27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */; };
+		53EFA51B27FA8B170049206C /* EFApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51A27FA8B170049206C /* EFApiClient.swift */; };
+		53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51C27FA8B310049206C /* EFApiRouter.swift */; };
+		53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51E27FA8B5A0049206C /* EFColor.swift */; };
+		53EFA52127FA8B700049206C /* EFConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52027FA8B700049206C /* EFConstant.swift */; };
+		53EFA52327FA8B7E0049206C /* EFUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52227FA8B7E0049206C /* EFUtil.swift */; };
+		53EFA52627FA8BAA0049206C /* EFFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52527FA8BAA0049206C /* EFFuture.swift */; };
+		53EFA52827FA8BB40049206C /* EFResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52727FA8BB40049206C /* EFResult.swift */; };
+		53EFA52B27FA8DF20049206C /* EFApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52A27FA8DF20049206C /* EFApiError.swift */; };
+		53EFA52F27FA8E0E0049206C /* EFPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52C27FA8E0E0049206C /* EFPhotos.swift */; };
+		53EFA53127FA8E0E0049206C /* EFPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA52E27FA8E0E0049206C /* EFPhoto.swift */; };
+		53EFA53827FA908E0049206C /* EFSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA53727FA908E0049206C /* EFSearchResponse.swift */; };
 		87837F33F2A793F2E19CDE54 /* Pods_electrolux_flickr_electrolux_flickrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A68519080C19BB4365EEE9 /* Pods_electrolux_flickr_electrolux_flickrUITests.framework */; };
 		E09A1715B8D16D9E45C89A38 /* Pods_electrolux_flickr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB779DD2F0FBE02A744EE973 /* Pods_electrolux_flickr.framework */; };
 		E502F387037A0438D1B41A71 /* Pods_electrolux_flickrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68F86D16BC10A6E202749AB /* Pods_electrolux_flickrTests.framework */; };
@@ -54,6 +65,17 @@
 		5315C8A527FA89F0002B4492 /* electrolux flickrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "electrolux flickrUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5315C8A927FA89F0002B4492 /* electrolux_flickrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electrolux_flickrUITests.swift; sourceTree = "<group>"; };
 		5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = electrolux_flickrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53EFA51A27FA8B170049206C /* EFApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiClient.swift; sourceTree = "<group>"; };
+		53EFA51C27FA8B310049206C /* EFApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiRouter.swift; sourceTree = "<group>"; };
+		53EFA51E27FA8B5A0049206C /* EFColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColor.swift; sourceTree = "<group>"; };
+		53EFA52027FA8B700049206C /* EFConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFConstant.swift; sourceTree = "<group>"; };
+		53EFA52227FA8B7E0049206C /* EFUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFUtil.swift; sourceTree = "<group>"; };
+		53EFA52527FA8BAA0049206C /* EFFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFFuture.swift; sourceTree = "<group>"; };
+		53EFA52727FA8BB40049206C /* EFResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFResult.swift; sourceTree = "<group>"; };
+		53EFA52A27FA8DF20049206C /* EFApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiError.swift; sourceTree = "<group>"; };
+		53EFA52C27FA8E0E0049206C /* EFPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFPhotos.swift; sourceTree = "<group>"; };
+		53EFA52E27FA8E0E0049206C /* EFPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFPhoto.swift; sourceTree = "<group>"; };
+		53EFA53727FA908E0049206C /* EFSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFSearchResponse.swift; sourceTree = "<group>"; };
 		9B4882C8DE93C8D356B03DFD /* Pods-electrolux flickrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electrolux flickrTests.release.xcconfig"; path = "Target Support Files/Pods-electrolux flickrTests/Pods-electrolux flickrTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB779DD2F0FBE02A744EE973 /* Pods_electrolux_flickr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_electrolux_flickr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11CCDF2CD458C7BB0AD4900 /* Pods-electrolux flickr-electrolux flickrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-electrolux flickr-electrolux flickrUITests.release.xcconfig"; path = "Target Support Files/Pods-electrolux flickr-electrolux flickrUITests/Pods-electrolux flickr-electrolux flickrUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +123,6 @@
 				D69BC3D6221BD4D48A59213B /* Pods-electrolux flickrTests.debug.xcconfig */,
 				9B4882C8DE93C8D356B03DFD /* Pods-electrolux flickrTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,6 +154,8 @@
 				5315C88827FA89EE002B4492 /* AppDelegate.swift */,
 				5315C88A27FA89EE002B4492 /* SceneDelegate.swift */,
 				5315C88C27FA89EE002B4492 /* ViewController.swift */,
+				53EFA53227FA8E710049206C /* Model */,
+				53EFA52427FA8B8A0049206C /* Helper */,
 				5315C88E27FA89EE002B4492 /* Main.storyboard */,
 				5315C89127FA89F0002B4492 /* Assets.xcassets */,
 				5315C89327FA89F0002B4492 /* LaunchScreen.storyboard */,
@@ -156,6 +179,55 @@
 				5315C8AB27FA89F0002B4492 /* electrolux_flickrUITestsLaunchTests.swift */,
 			);
 			path = "electrolux flickrUITests";
+			sourceTree = "<group>";
+		};
+		53EFA52427FA8B8A0049206C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				53EFA52927FA8BBA0049206C /* Future */,
+				53EFA51A27FA8B170049206C /* EFApiClient.swift */,
+				53EFA51C27FA8B310049206C /* EFApiRouter.swift */,
+				53EFA51E27FA8B5A0049206C /* EFColor.swift */,
+				53EFA52027FA8B700049206C /* EFConstant.swift */,
+				53EFA52227FA8B7E0049206C /* EFUtil.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		53EFA52927FA8BBA0049206C /* Future */ = {
+			isa = PBXGroup;
+			children = (
+				53EFA52527FA8BAA0049206C /* EFFuture.swift */,
+				53EFA52727FA8BB40049206C /* EFResult.swift */,
+			);
+			path = Future;
+			sourceTree = "<group>";
+		};
+		53EFA53227FA8E710049206C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53EFA53327FA8E870049206C /* General Error */,
+				53EFA53427FA8E980049206C /* Search Model */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53EFA53327FA8E870049206C /* General Error */ = {
+			isa = PBXGroup;
+			children = (
+				53EFA52A27FA8DF20049206C /* EFApiError.swift */,
+			);
+			path = "General Error";
+			sourceTree = "<group>";
+		};
+		53EFA53427FA8E980049206C /* Search Model */ = {
+			isa = PBXGroup;
+			children = (
+				53EFA52E27FA8E0E0049206C /* EFPhoto.swift */,
+				53EFA52C27FA8E0E0049206C /* EFPhotos.swift */,
+				53EFA53727FA908E0049206C /* EFSearchResponse.swift */,
+			);
+			path = "Search Model";
 			sourceTree = "<group>";
 		};
 		F634440B9A316FE26F0A10F3 /* Frameworks */ = {
@@ -407,8 +479,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53EFA52327FA8B7E0049206C /* EFUtil.swift in Sources */,
+				53EFA53827FA908E0049206C /* EFSearchResponse.swift in Sources */,
+				53EFA51B27FA8B170049206C /* EFApiClient.swift in Sources */,
+				53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */,
+				53EFA53127FA8E0E0049206C /* EFPhoto.swift in Sources */,
+				53EFA52F27FA8E0E0049206C /* EFPhotos.swift in Sources */,
+				53EFA52827FA8BB40049206C /* EFResult.swift in Sources */,
 				5315C88D27FA89EE002B4492 /* ViewController.swift in Sources */,
 				5315C88927FA89EE002B4492 /* AppDelegate.swift in Sources */,
+				53EFA52127FA8B700049206C /* EFConstant.swift in Sources */,
+				53EFA52B27FA8DF20049206C /* EFApiError.swift in Sources */,
+				53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */,
+				53EFA52627FA8BAA0049206C /* EFFuture.swift in Sources */,
 				5315C88B27FA89EE002B4492 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

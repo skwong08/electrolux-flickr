@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        EFApiClient.search(tags: "Electrolux", page: "1").execute { response in
+            print(response)
+        } onFailure: { errorMessage in
+            print(errorMessage)
+        }
     }
 
 
