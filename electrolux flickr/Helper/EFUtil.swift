@@ -69,6 +69,30 @@ class EFUtil: NSObject {
         
         return expectLabelSize
     }
+    
+    //MARK: - Download Image to Library
+    class func downloadImage(from url: URL) {
+        self.getDataFromUrl(url: url) { (data, response, error) in
+            guard let data = data, let imageFromData = UIImage(data: data) else { return }
+
+            DispatchQueue.main.async() {
+                UIImageWriteToSavedPhotosAlbum(imageFromData, nil, nil, nil)
+            }
+        }
+    }
+    
+    class func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+        }.resume()
+    }
+    
+    //MARK: -
+    class func convertUrl(url: String?) -> String? {
+        let filteredUrl = url?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        
+        return filteredUrl
+    }
 }
 
 extension URLComponents {
@@ -77,4 +101,3 @@ extension URLComponents {
         self.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
     }
 }
-

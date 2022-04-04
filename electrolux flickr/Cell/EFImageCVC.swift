@@ -40,8 +40,7 @@ class EFImageCVC: UICollectionViewCell {
     func setUpImageDetails(photoDetails: EFPhoto) {
         activityIndicator.startAnimating()
 
-        let filteredUrl = photoDetails.urlM?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
-        
+        let filteredUrl = EFUtil.convertUrl(url: photoDetails.urlM)
         if let urlString = filteredUrl, let url = URL(string: urlString) {
             self.imageView.kf.setImage(
                 with: url,

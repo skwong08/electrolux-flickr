@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5315C88927FA89EE002B4492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C88827FA89EE002B4492 /* AppDelegate.swift */; };
 		5315C88B27FA89EE002B4492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C88A27FA89EE002B4492 /* SceneDelegate.swift */; };
-		5315C88D27FA89EE002B4492 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C88C27FA89EE002B4492 /* ViewController.swift */; };
 		5315C89027FA89EE002B4492 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5315C88E27FA89EE002B4492 /* Main.storyboard */; };
 		5315C89227FA89F0002B4492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5315C89127FA89F0002B4492 /* Assets.xcassets */; };
 		5315C89527FA89F0002B4492 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5315C89327FA89F0002B4492 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,8 @@
 		535539D227FA954500AE54AC /* EFImageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D127FA954500AE54AC /* EFImageListViewModel.swift */; };
 		535539D427FA95B700AE54AC /* EFImageListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D327FA95B700AE54AC /* EFImageListDataSource.swift */; };
 		535539D727FA961C00AE54AC /* EFImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D627FA961C00AE54AC /* EFImageCVC.swift */; };
+		535539DA27FA9D5D00AE54AC /* EFImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539D927FA9D5D00AE54AC /* EFImagePreviewViewController.swift */; };
+		535539DC27FA9DBD00AE54AC /* EFImagePreviewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535539DB27FA9DBD00AE54AC /* EFImagePreviewCVC.swift */; };
 		53EFA51B27FA8B170049206C /* EFApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51A27FA8B170049206C /* EFApiClient.swift */; };
 		53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51C27FA8B310049206C /* EFApiRouter.swift */; };
 		53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EFA51E27FA8B5A0049206C /* EFColor.swift */; };
@@ -60,7 +61,6 @@
 		5315C88527FA89EE002B4492 /* electrolux flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "electrolux flickr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5315C88827FA89EE002B4492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5315C88A27FA89EE002B4492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5315C88C27FA89EE002B4492 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5315C88F27FA89EE002B4492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5315C89127FA89F0002B4492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5315C89427FA89F0002B4492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +75,8 @@
 		535539D127FA954500AE54AC /* EFImageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageListViewModel.swift; sourceTree = "<group>"; };
 		535539D327FA95B700AE54AC /* EFImageListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageListDataSource.swift; sourceTree = "<group>"; };
 		535539D627FA961C00AE54AC /* EFImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImageCVC.swift; sourceTree = "<group>"; };
+		535539D927FA9D5D00AE54AC /* EFImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImagePreviewViewController.swift; sourceTree = "<group>"; };
+		535539DB27FA9DBD00AE54AC /* EFImagePreviewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFImagePreviewCVC.swift; sourceTree = "<group>"; };
 		53EFA51A27FA8B170049206C /* EFApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiClient.swift; sourceTree = "<group>"; };
 		53EFA51C27FA8B310049206C /* EFApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFApiRouter.swift; sourceTree = "<group>"; };
 		53EFA51E27FA8B5A0049206C /* EFColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColor.swift; sourceTree = "<group>"; };
@@ -163,11 +165,10 @@
 			children = (
 				5315C88827FA89EE002B4492 /* AppDelegate.swift */,
 				5315C88A27FA89EE002B4492 /* SceneDelegate.swift */,
-				5315C88C27FA89EE002B4492 /* ViewController.swift */,
+				53EFA53227FA8E710049206C /* Model */,
 				535539D827FA963900AE54AC /* Cell */,
 				535539D527FA95E500AE54AC /* View Model */,
 				535539D027FA952200AE54AC /* Controller */,
-				53EFA53227FA8E710049206C /* Model */,
 				53EFA52427FA8B8A0049206C /* Helper */,
 				5315C88E27FA89EE002B4492 /* Main.storyboard */,
 				5315C89127FA89F0002B4492 /* Assets.xcassets */,
@@ -199,6 +200,7 @@
 			children = (
 				535539CC27FA93FE00AE54AC /* EFBaseViewController.swift */,
 				535539CE27FA94B800AE54AC /* EFImageListViewController.swift */,
+				535539D927FA9D5D00AE54AC /* EFImagePreviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				535539D627FA961C00AE54AC /* EFImageCVC.swift */,
+				535539DB27FA9DBD00AE54AC /* EFImagePreviewCVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -526,14 +529,15 @@
 				535539CF27FA94B800AE54AC /* EFImageListViewController.swift in Sources */,
 				53EFA51D27FA8B310049206C /* EFApiRouter.swift in Sources */,
 				53EFA53127FA8E0E0049206C /* EFPhoto.swift in Sources */,
+				535539DC27FA9DBD00AE54AC /* EFImagePreviewCVC.swift in Sources */,
 				53EFA52F27FA8E0E0049206C /* EFPhotos.swift in Sources */,
 				53EFA52827FA8BB40049206C /* EFResult.swift in Sources */,
-				5315C88D27FA89EE002B4492 /* ViewController.swift in Sources */,
 				5315C88927FA89EE002B4492 /* AppDelegate.swift in Sources */,
 				53EFA52127FA8B700049206C /* EFConstant.swift in Sources */,
 				535539D227FA954500AE54AC /* EFImageListViewModel.swift in Sources */,
 				53EFA52B27FA8DF20049206C /* EFApiError.swift in Sources */,
 				53EFA51F27FA8B5A0049206C /* EFColor.swift in Sources */,
+				535539DA27FA9D5D00AE54AC /* EFImagePreviewViewController.swift in Sources */,
 				53EFA52627FA8BAA0049206C /* EFFuture.swift in Sources */,
 				535539CD27FA93FE00AE54AC /* EFBaseViewController.swift in Sources */,
 				5315C88B27FA89EE002B4492 /* SceneDelegate.swift in Sources */,

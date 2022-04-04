@@ -8,6 +8,7 @@
 import UIKit
 
 class EFImageListDataSource<CELL : UICollectionViewCell, T>: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     private var cellIdentifier: String!
     private var items: [T]!
     private var isPaginationFinish: Bool!
@@ -30,8 +31,7 @@ class EFImageListDataSource<CELL : UICollectionViewCell, T>: NSObject, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CELL
-        else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CELL else {
             fatalError("DequeueReusableCell failed while casting")
         }
         

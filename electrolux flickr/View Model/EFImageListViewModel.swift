@@ -8,6 +8,7 @@
 import UIKit
 
 class EFImageListViewModel: NSObject {
+    
     private var imageListVC: EFImageListViewController!
     var photoArray: [EFPhoto] = []
 
@@ -20,7 +21,19 @@ class EFImageListViewModel: NSObject {
     func search(tags: String, page: Int) {
         let pageInString = String(format: "%d", page)
         EFApiClient.search(tags: tags, page: pageInString).execute { response in
-            self.photoArray = response.photos?.photo ?? []
+            
+            if page == 1 {
+                self.photoArray = response.photos?.photo ?? []
+            } else {
+                self.photoArray.append(contentsOf: response.photos?.photo ?? [])
+            }
+            
+            if response.photos?.photo?.count == 20 {
+                self.imageListVC.page += 1
+            } else {
+                self.imageListVC.isPaginationFinish = true
+            }
+
             self.imageListVC.updateDataSource()
         } onFailure: { errorMessage in
             self.imageListVC.updateDataSource()

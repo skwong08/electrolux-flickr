@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EFImageListViewController: UIViewController {
+class EFImageListViewController: EFBaseViewController {
     
     // MARK: - Constant for Item Cell
     struct ViewConstant {
@@ -22,11 +22,15 @@ class EFImageListViewController: UIViewController {
     var collectionView: UICollectionView!
     var searchTextField: UITextField!
     var cancelBtn: UIButton!
-    var saveBtn: UIButton!
+    var editSaveBtn: UIButton!
+    var editCancelBtn: UIButton!
 
     var photoArray: [EFPhoto]! = []
+    var selectedImageArray: [EFPhoto]! = []
     var page: Int! = 1
-    
+    var isEditMode: Bool! = false
+    var isPaginationFinish: Bool! = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,16 +58,28 @@ class EFImageListViewController: UIViewController {
         navBar.addSubview(titleLabel)
         
         let maximumLabelSize = CGSize(width: ScreenSize.width, height: .greatestFiniteMagnitude)
-        let expectedSaveBtnSize = EFUtil.getLabelSize(text: "Save", maximumLabelSize: maximumLabelSize, attributes: [.font: UIFont.systemFont(ofSize: EFUtil.convertSizeByDensity(size: 16))])
+        let expectedSaveBtnSize = EFUtil.getLabelSize(text: "Save ", maximumLabelSize: maximumLabelSize, attributes: [.font: UIFont.systemFont(ofSize: EFUtil.convertSizeByDensity(size: 16))])
         
-        saveBtn = UIButton.init()
-        saveBtn.backgroundColor = .clear
-        saveBtn.setTitle("Save", for: .selected)
-        saveBtn.setTitleColor(.electrolux_blue_337EF6, for: .normal)
-        saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        saveBtn.addTarget(self, action: #selector(saveBtnDidTapped), for: .touchUpInside)
-        saveBtn.frame = CGRect(x: ScreenSize.width - expectedSaveBtnSize.width - ConstantSize.paddingStandard, y: 0, width: expectedSaveBtnSize.width, height: ScreenSize.navBarHeight)
-        navBar.addSubview(saveBtn)
+        let expectedCancelBtnSize = EFUtil.getLabelSize(text: "Cancel", maximumLabelSize: maximumLabelSize, attributes: [.font: UIFont.systemFont(ofSize: 16)])
+        
+        editCancelBtn = UIButton.init()
+        editCancelBtn.backgroundColor = .clear
+        editCancelBtn.setTitle("Cancel", for: .normal)
+        editCancelBtn.setTitleColor(.electrolux_blue_337EF6, for: .normal)
+        editCancelBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        editCancelBtn.alpha = 0
+        editCancelBtn.addTarget(self, action: #selector(editCancelBtnTapped), for: .touchUpInside)
+        editCancelBtn.frame = CGRect(x: ConstantSize.paddingStandard, y: 0, width: expectedCancelBtnSize.width, height: ScreenSize.navBarHeight)
+        navBar.addSubview(editCancelBtn)
+
+        editSaveBtn = UIButton.init()
+        editSaveBtn.backgroundColor = .clear
+        editSaveBtn.setTitle("Edit", for: .normal)
+        editSaveBtn.setTitleColor(.electrolux_blue_337EF6, for: .normal)
+        editSaveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        editSaveBtn.addTarget(self, action: #selector(editSaveBtnTapped), for: .touchUpInside)
+        editSaveBtn.frame = CGRect(x: ScreenSize.width - expectedSaveBtnSize.width - ConstantSize.paddingStandard, y: 0, width: expectedSaveBtnSize.width, height: ScreenSize.navBarHeight)
+        navBar.addSubview(editSaveBtn)
     }
     
     // MARK: - Setup Search Bar
@@ -97,6 +113,7 @@ class EFImageListViewController: UIViewController {
             .font: UIFont.systemFont(ofSize: EFUtil.convertSizeByDensity(size: 16)),
             .foregroundColor: UIColor.electrolux_gray_C9C9CE
         ])
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         searchTextField.frame = CGRect(x: ConstantSize.paddingStandard, y: ConstantSize.paddingStandardHalf, width: ScreenSize.width - ConstantSize.paddingStandard * 3 - cancelBtn.frame.size.width, height: ViewConstant.searchBarHeight - ConstantSize.paddingStandard)
         searchTextField.setLeftPaddingPoints(ConstantSize.paddingStandard)
         searchBarView.addSubview(searchTextField)
@@ -128,13 +145,25 @@ class EFImageListViewController: UIViewController {
         self.imageListViewModel = EFImageListViewModel(imageListVC: self)
         self.imageListViewModel.search(tags: self.getSearchText(), page: page)
     }
-    
+
     func updateDataSource() {
         photoArray = self.imageListViewModel.photoArray
         
-        self.dataSource = EFImageListDataSource(cellIdentifier: "EFImageCVC", items: photoArray, isPaginationFinish: false, configureCell: { (cell, photoDetails) in
+        self.dataSource = EFImageListDataSource(cellIdentifier: "EFImageCVC", items: photoArray, isPaginationFinish: isPaginationFinish, configureCell: { (cell, photoDetails) in
 
             cell.setUpImageDetails(photoDetails: photoDetails)
+            if self.isEditMode {
+                let index = self.selectedImageArray.firstIndex(where: { $0.id == photoDetails.id}) ?? -1
+                
+                if index > -1 {
+                    cell.imageView?.layer.borderWidth = EFUtil.convertSizeByDensity(size: 5)
+                    cell.imageView?.layer.borderColor = UIColor.electrolux_blue_337EF6.cgColor
+                } else {
+                    cell.imageView?.layer.borderWidth = 0
+                }
+            } else {
+                cell.imageView?.layer.borderWidth = 0
+            }
         })
         
         DispatchQueue.main.async {
@@ -153,42 +182,108 @@ class EFImageListViewController: UIViewController {
         return defaultText
     }
     
-    // MARK: - Reset Search
-    func resetSearch() {
-        self.view.endEditing(true)
-        self.page = 1
-        self.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        self.imageListViewModel.search(tags: self.getSearchText(), page: page)
-    }
-    
     // MARK: - Button Actions
     @objc
-    func saveBtnDidTapped() {
+    func editSaveBtnTapped() {
         self.view.endEditing(true)
+        editSaveBtn.setTitle("Save", for: .normal)
+
+        if isEditMode {
+            if selectedImageArray.count > 0 {
+                for photoDetails in selectedImageArray {
+                    let filteredUrl = EFUtil.convertUrl(url: photoDetails.urlM)
+                    if let urlString = filteredUrl, let url = URL(string: urlString) {
+                        EFUtil.downloadImage(from: url)
+                        showAlert(title: "Saved", message: "Selected image(s) has been saved.")
+                        editCancelBtnTapped()
+                    }
+                }
+            } else {
+                showAlert(title: "Opss", message: "Select up to 5 images to save into your library.")
+            }
+        } else {
+            isEditMode = true
+            editSaveBtn.isSelected = true
+            UIView.animate(withDuration: CGFloat(0.25)) {
+                self.editCancelBtn.alpha = 1
+            }
+        }
     }
     
     @objc
+    func editCancelBtnTapped() {
+        editSaveBtn.setTitle("Edit", for: .normal)
+        isEditMode = false
+        editSaveBtn.isSelected = false
+        selectedImageArray = []
+        UIView.animate(withDuration: CGFloat(0.25)) {
+            self.editCancelBtn.alpha = 0
+        }
+        self.updateDataSource()
+    }
+        
+    @objc
     func cancelBtnDidTapped() {
-        searchTextField.text = ""
-        resetSearch()
+        self.view.endEditing(true)
+        
+        if let searchTextField = self.searchTextField, let searchText = searchTextField.text, searchText.count > 0 {
+            searchTextField.text = ""
+            self.page = 1
+            self.isPaginationFinish = false
+            self.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            self.imageListViewModel.search(tags: self.getSearchText(), page: page)
+        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        editCancelBtnTapped()
     }
 }
 
 extension EFImageListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.page = 1
+        self.isPaginationFinish = false
+        self.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        self.imageListViewModel.search(tags: self.getSearchText(), page: page)
         self.view.endEditing(true)
-        resetSearch()
         return true
     }
 }
 
-
 extension EFImageListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if isEditMode {
+            var isExist = false
+            for (index, imageDetails) in selectedImageArray.enumerated() {
+                if imageDetails.urlM == self.imageListViewModel.photoArray[indexPath.item].urlM {
+                    isExist = true
+                    selectedImageArray.remove(at: index)
+                    break
+                }
+            }
+            
+            if !isExist {
+                if selectedImageArray.count >= 5 {
+                    showAlert(title: "Sorry", message: "You are allowed to select 5 images to save at one time.")
+                    return;
+                }
+                
+                selectedImageArray.append(self.imageListViewModel.photoArray[indexPath.item])
+            }
+            self.updateDataSource()
+        } else {
+            let viewController = EFImagePreviewViewController.init()
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.imageArray = self.imageListViewModel.photoArray
+            viewController.currentPage = indexPath.item
+            self.present(viewController, animated: true, completion: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        if !isPaginationFinish && indexPath.item == self.imageListViewModel.photoArray.count - 1 {
+            self.imageListViewModel.search(tags: self.getSearchText(), page: page)
+        }
     }
 }
